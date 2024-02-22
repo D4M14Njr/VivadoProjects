@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+C:/Vivado2022/VivadoProjects/project_7/project_7.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sim_1/new/mealy_fsm_test.v,1702498755,verilog,,,,mealy_fsm_test,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/mealy_fsm.v,1702506224,verilog,,C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/moore_fsm.v,,mealy_fsm,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/moore_fsm.v,1702499758,verilog,,C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sim_1/new/mealy_fsm_test.v,,moore_fsm,,,,,,,,

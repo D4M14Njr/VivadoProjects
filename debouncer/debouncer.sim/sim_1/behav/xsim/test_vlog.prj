@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../debouncer.srcs/sources_1/new/counter.v" \
+"../../../../debouncer.srcs/sources_1/new/debouncer.v" \
+"../../../../debouncer.srcs/sources_1/new/led_controller.v" \
+"../../../../debouncer.srcs/sources_1/new/synchronizer.v" \
+"../../../../debouncer.srcs/sim_1/new/test.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sources_1/new/cd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cd
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sources_1/new/dc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sources_1/new/func_dc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module func_dc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sources_1/new/func_mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module func_mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sources_1/new/func_pri.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module func_pri
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/project_2/project_2.srcs/sim_1/new/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench

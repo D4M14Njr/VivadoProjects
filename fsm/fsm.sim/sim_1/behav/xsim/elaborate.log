@@ -1,0 +1,19 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Vivado2022/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot mealy_fsm_test_behav xil_defaultlib.mealy_fsm_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/mealy_fsm.v" Line 1. Module mealy_fsm doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/moore_fsm.v" Line 1. Module moore_fsm doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/mealy_fsm.v" Line 1. Module mealy_fsm doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/project_7/project_7.srcs/sources_1/new/moore_fsm.v" Line 1. Module moore_fsm doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.mealy_fsm
+Compiling module xil_defaultlib.moore_fsm
+Compiling module xil_defaultlib.mealy_fsm_test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot mealy_fsm_test_behav

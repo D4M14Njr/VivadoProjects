@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="9.758647 us"></ZoomEndTime>
+      <Cursor1Time time="0.597690 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="171"></NameColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/test/inp" type="array">
+      <obj_property name="ElementShortName">inp[3:0]</obj_property>
+      <obj_property name="ObjectShortName">inp[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/seg" type="array">
+      <obj_property name="ElementShortName">seg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">seg[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/an" type="array">
+      <obj_property name="ElementShortName">an[7:0]</obj_property>
+      <obj_property name="ObjectShortName">an[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/button" type="logic">
+      <obj_property name="ElementShortName">button</obj_property>
+      <obj_property name="ObjectShortName">button</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/mask" type="array">
+      <obj_property name="ElementShortName">mask[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mask[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/number" type="array">
+      <obj_property name="ElementShortName">number[31:0]</obj_property>
+      <obj_property name="ObjectShortName">number[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/in_signal" type="logic">
+      <obj_property name="ElementShortName">in_signal</obj_property>
+      <obj_property name="ObjectShortName">in_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/CLOCK_ENABLE" type="logic">
+      <obj_property name="ElementShortName">CLOCK_ENABLE</obj_property>
+      <obj_property name="ObjectShortName">CLOCK_ENABLE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/out_signal" type="logic">
+      <obj_property name="ElementShortName">out_signal</obj_property>
+      <obj_property name="ObjectShortName">out_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/out_signal_enable" type="logic">
+      <obj_property name="ElementShortName">out_signal_enable</obj_property>
+      <obj_property name="ObjectShortName">out_signal_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/sync_signal" type="logic">
+      <obj_property name="ElementShortName">sync_signal</obj_property>
+      <obj_property name="ObjectShortName">sync_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/counter_res" type="array">
+      <obj_property name="ElementShortName">counter_res[2:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_res[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb1/MODULE" type="array">
+      <obj_property name="ElementShortName">MODULE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MODULE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/AN_MASK" type="array">
+      <obj_property name="ElementShortName">AN_MASK[7:0]</obj_property>
+      <obj_property name="ObjectShortName">AN_MASK[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/NUMBER" type="array">
+      <obj_property name="ElementShortName">NUMBER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUMBER[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/AN" type="array">
+      <obj_property name="ElementShortName">AN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">AN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/SEG" type="array">
+      <obj_property name="ElementShortName">SEG[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SEG[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/AN_REG" type="array">
+      <obj_property name="ElementShortName">AN_REG[7:0]</obj_property>
+      <obj_property name="ObjectShortName">AN_REG[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/NUMBER_SPLITTER" type="array">
+      <obj_property name="ElementShortName">NUMBER_SPLITTER[0:7][3:0]</obj_property>
+      <obj_property name="ObjectShortName">NUMBER_SPLITTER[0:7][3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led/digit_pos" type="array">
+      <obj_property name="ElementShortName">digit_pos[2:0]</obj_property>
+      <obj_property name="ObjectShortName">digit_pos[2:0]</obj_property>
+   </wvobject>
+</wave_config>

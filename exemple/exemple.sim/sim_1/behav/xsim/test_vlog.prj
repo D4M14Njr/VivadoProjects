@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../exemple.srcs/sources_1/new/FILTER.v" \
+"../../../../exemple.srcs/sources_1/new/SevenSegmentLED.v" \
+"../../../../exemple.srcs/sources_1/new/clk_div.v" \
+"../../../../exemple.srcs/sources_1/new/counter.v" \
+"../../../../exemple.srcs/sources_1/new/main.v" \
+"../../../../exemple.srcs/sim_1/new/test.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

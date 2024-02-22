@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+C:/Vivado2022/VivadoProjects/frequency_devider/frequency_devider.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+C:/Vivado2022/VivadoProjects/frequency_devider/frequency_devider.srcs/sim_1/new/test.v,1708327679,verilog,,,,test,,,,,,,,
+C:/Vivado2022/VivadoProjects/frequency_devider/frequency_devider.srcs/sources_1/new/clk_div.v,1701354892,verilog,,C:/Vivado2022/VivadoProjects/frequency_devider/frequency_devider.srcs/sources_1/new/counter.v,,clk_div,,,,,,,,
+C:/Vivado2022/VivadoProjects/frequency_devider/frequency_devider.srcs/sources_1/new/counter.v,1701354892,verilog,,C:/Vivado2022/VivadoProjects/frequency_devider/frequency_devider.srcs/sim_1/new/test.v,,counter,,,,,,,,
