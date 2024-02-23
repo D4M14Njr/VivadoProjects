@@ -10,7 +10,7 @@ wire [$clog2(MODULE)-1:0] counter_res;
 
 synchronizer sinc(.in(in_signal), .clk(clk), .out(sync_signal));
 
-counter #(.MODULE(MODULE), .STEP(1)) cntr(
+counter #(.MODULE(MODULE), .STEP(1'b1)) cntr(
     .clk(clk), 
     .reset(sync_signal~^out_signal), 
     .enable(CLOCK_ENABLE), 

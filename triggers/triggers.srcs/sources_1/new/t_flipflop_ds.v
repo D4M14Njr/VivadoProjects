@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 // T-ענטדדונ 
 
 module t_flipflop_ds(

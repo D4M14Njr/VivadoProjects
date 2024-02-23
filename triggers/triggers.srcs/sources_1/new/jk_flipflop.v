@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 // синхронный JK-триггер 
 
 module jk_flipflop(

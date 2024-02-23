@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 // синхронный одноступенчатый RS-триггер на и-не
 
 module gated_rs_latch_nand(

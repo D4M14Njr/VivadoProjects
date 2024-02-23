@@ -22,7 +22,7 @@ begin
             #3;
         end
         button = 1;
-        #200;
+        #500;
 
         repeat($urandom_range(50,0))
         begin
@@ -30,7 +30,7 @@ begin
             #3;
         end
         button = 0;
-        #200;
+        #500;
     end
 end
 

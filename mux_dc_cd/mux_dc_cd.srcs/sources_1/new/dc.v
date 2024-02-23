@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module dc #(width = 2) (
     input Ena,
     input [width - 1:0] a,

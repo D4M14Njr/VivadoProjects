@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 // динимический одноступенчатый RS-триггер
 
 module dyn_rs_latch(

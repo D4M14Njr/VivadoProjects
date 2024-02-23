@@ -47,4 +47,5 @@ begin
     
     AN_REG <= ~(8'd1 << digit_pos);
 end
+
 endmodule

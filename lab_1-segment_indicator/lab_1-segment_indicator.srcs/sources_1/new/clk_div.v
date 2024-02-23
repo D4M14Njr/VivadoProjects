@@ -11,7 +11,7 @@ counter #(.STEP(1), .MODULE(DIV/2)) cntr(
     .enable(1'd1),
     .cnt(cnt));
 
-initial clk_d <= 0;
+initial clk_d = 0;
 
 always@(posedge clk)
     if (cnt == 0) 

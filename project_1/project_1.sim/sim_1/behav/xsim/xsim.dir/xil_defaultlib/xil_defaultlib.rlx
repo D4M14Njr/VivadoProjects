@@ -1,0 +1,12 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+C:/Vivado2022/VivadoProjects/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sim_1/new/test.v,1708719591,verilog,,,,test,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/clk_div.v,1708720021,verilog,,C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/counter.v,,clk_div,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/counter.v,1708719638,verilog,,C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/debouncer.v,,counter,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/debouncer.v,1708719502,verilog,,C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/main.v,,debouncer,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/main.v,1708719794,verilog,,C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/seven_segment_led.v,,main,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/seven_segment_led.v,1708719606,verilog,,C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/synchronizer.v,,seven_segment_led,,,,,,,,
+C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sources_1/new/synchronizer.v,1708719425,verilog,,C:/Vivado2022/VivadoProjects/project_1/project_1.srcs/sim_1/new/test.v,,synchronizer,,,,,,,,

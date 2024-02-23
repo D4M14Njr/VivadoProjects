@@ -4,9 +4,10 @@ module led_controller(
 
 wire out_signal_enable;   
 
-debouncer #(1'b1) dbnc(
+debouncer #(8) dbnc(
     .clk(clk),
-    .in_signal(button_in), 
+    .in_signal(button_in),
+    .CLOCK_ENABLE(1'b1),
     .out_signal(),
     .out_signal_enable(out_signal_enable));
 

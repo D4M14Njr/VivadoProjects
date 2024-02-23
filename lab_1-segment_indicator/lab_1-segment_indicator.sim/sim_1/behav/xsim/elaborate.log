@@ -10,29 +10,29 @@ WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/la
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/seven_segment_led.v" Line 1. Module seven_segment_led doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/debouncer.v" Line 1. Module debouncer doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/synchronizer.v" Line 1. Module synchronizer doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8,STEP=1'b1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/debouncer.v" Line 1. Module debouncer doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/synchronizer.v" Line 1. Module synchronizer doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8,STEP=1'b1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/clk_div.v" Line 1. Module clk_div(DIV=6) doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=3) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=6) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/main.v" Line 1. Module main doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/seven_segment_led.v" Line 1. Module seven_segment_led doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/debouncer.v" Line 1. Module debouncer doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/synchronizer.v" Line 1. Module synchronizer doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8,STEP=1'b1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/debouncer.v" Line 1. Module debouncer doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/synchronizer.v" Line 1. Module synchronizer doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=8,STEP=1'b1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/clk_div.v" Line 1. Module clk_div(DIV=6) doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=3) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Vivado2022/VivadoProjects/lab_1-segment_indicator/lab_1-segment_indicator.srcs/sources_1/new/counter.v" Line 1. Module counter(MODULE=6) doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.seven_segment_led
 Compiling module xil_defaultlib.synchronizer
-Compiling module xil_defaultlib.counter(MODULE=8)
+Compiling module xil_defaultlib.counter(MODULE=8,STEP=1'b1)
 Compiling module xil_defaultlib.debouncer
-Compiling module xil_defaultlib.counter(MODULE=3)
+Compiling module xil_defaultlib.counter(MODULE=6)
 Compiling module xil_defaultlib.clk_div(DIV=6)
 Compiling module xil_defaultlib.main
 Compiling module xil_defaultlib.test

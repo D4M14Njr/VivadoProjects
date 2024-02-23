@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="887.300 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,713.301 ns"></ZoomEndTime>
+      <Cursor1Time time="1,320.300 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="165"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/test/inp" type="array">
+      <obj_property name="ElementShortName">inp[3:0]</obj_property>
+      <obj_property name="ObjectShortName">inp[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/seg" type="array">
+      <obj_property name="ElementShortName">seg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">seg[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/an" type="array">
+      <obj_property name="ElementShortName">an[7:0]</obj_property>
+      <obj_property name="ObjectShortName">an[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/button" type="logic">
+      <obj_property name="ElementShortName">button</obj_property>
+      <obj_property name="ObjectShortName">button</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/digit" type="array">
+      <obj_property name="ElementShortName">digit[3:0]</obj_property>
+      <obj_property name="ObjectShortName">digit[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/en_button" type="logic">
+      <obj_property name="ElementShortName">en_button</obj_property>
+      <obj_property name="ObjectShortName">en_button</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/an" type="array">
+      <obj_property name="ElementShortName">an[7:0]</obj_property>
+      <obj_property name="ObjectShortName">an[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/seg" type="array">
+      <obj_property name="ElementShortName">seg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">seg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/mask" type="array">
+      <obj_property name="ElementShortName">mask[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mask[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/number" type="array">
+      <obj_property name="ElementShortName">number[31:0]</obj_property>
+      <obj_property name="ObjectShortName">number[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/led_clk" type="logic">
+      <obj_property name="ElementShortName">led_clk</obj_property>
+      <obj_property name="ObjectShortName">led_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb_en" type="logic">
+      <obj_property name="ElementShortName">deb_en</obj_property>
+      <obj_property name="ObjectShortName">deb_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/m/deb_reset" type="logic">
+      <obj_property name="ElementShortName">deb_reset</obj_property>
+      <obj_property name="ObjectShortName">deb_reset</obj_property>
+   </wvobject>
+</wave_config>

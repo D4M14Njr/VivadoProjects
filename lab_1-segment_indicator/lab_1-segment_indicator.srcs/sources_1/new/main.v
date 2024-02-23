@@ -40,8 +40,7 @@ clk_div #(6) div(// change it to 1024
     
 always@(posedge clk)
 begin
-    if (digit)
-        number = {number[31:4], digit};
+    number = {number[31:4], digit};
     if (deb_reset) 
     begin
         mask = 8'b11111110;
@@ -53,4 +52,5 @@ begin
         number = number << 4;
     end
 end
+
 endmodule

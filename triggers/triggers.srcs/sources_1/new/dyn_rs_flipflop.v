@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 // двухступенчатый синхронный RS-триггер
 
 module dyn_rs_flipflop(

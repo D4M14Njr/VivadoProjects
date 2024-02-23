@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 // D-ענטדדונ
 
 module gated_d_latch(

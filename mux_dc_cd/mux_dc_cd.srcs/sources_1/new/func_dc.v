@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module func_dc(
     input [4:0] in,
     output f);
