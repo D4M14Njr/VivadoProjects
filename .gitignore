@@ -1,20 +1,7 @@
-# Always ignore journal and log files
-*.log
-*.jou
-*.str
-
-# Ignore trash in bd directory except .BD files
-/bd/**/*
-!/bd/**/*.bd
-
-# Ignore editor's temporary files
-*~
-*#
-
-# Ignore sendboxes
-/prj*/
-
-# Ignore Vivado temporary files
-.Xil/
-
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.wcfg
 project_1/

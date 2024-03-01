@@ -1,7 +1,0 @@
-Running: xsim.dir/test_for_grs_behav/xsimk.exe -simmode gui -wdb test_for_grs_behav.wdb -simrunnum 0 -socket 61588
-Design successfully loaded
-Design Loading Memory Usage: 7060 KB (Peak: 7060 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 7660 KB (Peak: 7660 KB)
-Simulation CPU Usage: 15 ms

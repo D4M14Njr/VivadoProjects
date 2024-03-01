@@ -1,4 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/prac_1-hardware_resources/prac_1-hardware_resources.srcs/sources_1/new/main.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado2022/VivadoProjects/prac_1-hardware_resources/prac_1-hardware_resources.srcs/sim_1/new/test.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module test
