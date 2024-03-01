@@ -19,14 +19,14 @@ seven_segment_led led(
     .AN(an),
     .SEG(seg));
 
-debouncer #(8) deb1( // change it to 128
+debouncer #(128) deb1( // change it to 128
     .clk(clk), 
     .in_signal(en_button),
     .CLOCK_ENABLE(1'b1),
     .out_signal(),
     .out_signal_enable(deb_en));
     
-debouncer #(8) deb2(// change it to 128
+debouncer #(128) deb2(// change it to 128
     .clk(clk), 
     .in_signal(reset),
     .CLOCK_ENABLE(1'b1),
@@ -34,7 +34,7 @@ debouncer #(8) deb2(// change it to 128
     .out_signal_enable(deb_reset));
 
 
-clk_div #(6) div(// change it to 1024
+clk_div #(1024) div(// change it to 1024
     .clk(clk),
     .clk_d(led_clk));
     
