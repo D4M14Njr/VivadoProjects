@@ -2,9 +2,8 @@ module seven_segment_led(
     input [7:0] AN_MASK,
     input [31:0] NUMBER,
     input RESET,
+    input CE,
     input clk,
-    input [2:0] minus_pos,
-    input negative,
     input error_in,
     output [7:0] AN,
     output reg [7:0] SEG);
@@ -24,9 +23,12 @@ endgenerate
 assign AN = AN_REG | AN_MASK;
 
 always@(posedge clk)
-    digit_pos <= RESET ? 0: digit_pos + 3'b1;
+    if (RESET == 1)
+	   digit_pos <= 0;  
+	else if (CE == 1)
+	   digit_pos <= digit_pos + 3'b1;   
 
-always@(posedge clk)
+always@*
 begin
     if (error_in)
         case (digit_pos)
@@ -37,8 +39,7 @@ begin
             3'b000: SEG <= 8'b10101111;
             default: SEG <= 8'b11111111;
         endcase
-    else if (negative & digit_pos == minus_pos) SEG <= 8'b10111111;
-    else
+    else    
         case (NUMBER_SPLITTER[digit_pos])
             4'h0: SEG <= 8'b11000000;
             4'h1: SEG <= 8'b11111001;
@@ -59,7 +60,7 @@ begin
             default: SEG <= 8'b11111111;
         endcase
     
-    AN_REG <= ~(8'd1 << digit_pos);
+	AN_REG <= ~(8'd1 << digit_pos);
 end
 
 endmodule

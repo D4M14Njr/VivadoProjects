@@ -4,4 +4,7 @@
 *.runs/
 *.sim/
 *.wcfg
+*.ip_user_files/
+*.gen/
 project_1/
+.Xil

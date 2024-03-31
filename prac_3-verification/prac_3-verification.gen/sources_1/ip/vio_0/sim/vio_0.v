@@ -55,12 +55,12 @@ probe_out2
 );
 
 input clk;
-input [7 : 0] probe_in0;
-input [7 : 0] probe_in1;
+input [15 : 0] probe_in0;
+input [15 : 0] probe_in1;
 
 output reg [0 : 0] probe_out0 = 'h0 ;
 output reg [0 : 0] probe_out1 = 'h0 ;
-output reg [7 : 0] probe_out2 = 'h00 ;
+output reg [31 : 0] probe_out2 = 'h00000000 ;
 
 
 endmodule

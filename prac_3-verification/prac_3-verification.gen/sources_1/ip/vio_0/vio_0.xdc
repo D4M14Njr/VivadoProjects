@@ -69,3 +69,4 @@ create_waiver -type CDC -id CDC-4 -from [get_pins -filter {REF_PIN_NAME=~C} -of_
 	set_false_path -from [get_cells -hierarchical -filter { NAME =~  "*clear_int*" && IS_SEQUENTIAL}] -to [get_cells -hierarchical -filter { NAME =~  "*Probe_out*" && IS_SEQUENTIAL}] 
 	set_false_path -from [get_cells -hierarchical -filter { NAME =~  "*clear_int*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~  "*PROBE_OUT_ALL_INST/G_PROBE_OUT[*].PROBE_OUT0_INST/data_int*" && IS_SEQUENTIAL}]
 	set_false_path -from [get_cells -hierarchical -filter { NAME =~  "*data_int_*" && IS_SEQUENTIAL } ] -to [get_cells -hierarchical -filter { NAME =~  "*Probe_out_*" && IS_SEQUENTIAL} ]
+	set_false_path -from [get_cells -hierarchical -filter { NAME =~  "*clear_int*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~  "*PROBE_OUT_ALL_INST/G_PROBE_OUT[*].PROBE_OUT0_INST/LOOP_I[*].data_int*" && IS_SEQUENTIAL }]

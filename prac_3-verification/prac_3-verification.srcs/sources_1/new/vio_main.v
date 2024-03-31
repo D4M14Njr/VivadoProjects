@@ -6,7 +6,7 @@ module vio_main(
 	output [7:0] seg);
 
 wire en_button, reset;
-wire [7:0] inp;
+wire [15:0] inp;
 vio_0 vio (
     .clk(clk),
     .probe_in0(an),
