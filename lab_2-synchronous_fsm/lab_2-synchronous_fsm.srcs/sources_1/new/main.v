@@ -46,25 +46,25 @@ seven_segment_led led(
     .AN(an),
     .SEG(seg));
 
-debouncer #(128) deb1( // change it to 128
+debouncer #(8) deb1( // change it to 128
     .clk(calc_clk), 
     .in_signal(en_button),
     .CLOCK_ENABLE(1'b1),
     .out_signal(),
     .out_signal_enable(deb_en));
     
-debouncer #(128) deb2( // change it to 128
+debouncer #(8) deb2( // change it to 128
     .clk(calc_clk), 
     .in_signal(reset),
     .CLOCK_ENABLE(1'b1),
     .out_signal(),
     .out_signal_enable(deb_reset));
 
-clk_div #(4096) div1( // change it to 4096
+clk_div #(4) div1( // change it to 4096
     .clk(clk),
     .clk_d(led_clk));
 
-clk_div #(20) div2( // change it to 20
+clk_div #(2) div2( // change it to 20
     .clk(clk),
     .clk_d(calc_clk));
 
