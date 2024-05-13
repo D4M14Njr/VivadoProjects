@@ -1,16 +1,3 @@
-# set project_name prac_4-tcl
-
-# set project_found [llength [get_projects $project_name] ]
-# if {$project_found > 0} close_project
-
-# set origin_dir [file dirname [info script]]
-# set root /Vivado2022/VivadoProjects
-# cd $root
-# set path $root/$project_name/$project_name
-
-
-
-
 set project_name prac_4-tcl
 set project_found [llength [get_projects $project_name] ]
 if {$project_found > 0} close_project
@@ -122,22 +109,22 @@ launch_runs vio_0_synth_1 -jobs 16
 wait_on_runs vio_0_synth_1
 export_simulation -of_objects [get_files "$path.srcs/sources_1/ip/vio_0/vio_0.xci"] -directory "$path.ip_user_files/sim_scripts" -ip_user_files_dir "$path.ip_user_files" -ipstatic_source_dir "$path.ip_user_files/ipstatic" -lib_map_path [list {modelsim="$path.cache/compile_simlib/modelsim"} {questa="$path.cache/compile_simlib/questa"} {riviera="$path.cache/compile_simlib/riviera"} {activehdl="$path.cache/compile_simlib/activehdl"}] -use_ip_compiled_libs -force -quiet
 
-# # Симуляция на разных наборах (simulation sets)
-# foreach t_set [ get_filesets test* ] {
-#     current_fileset -simset $t_set
-#     file mkdir $origin_dir/$project_name/sim_output/${t_set}
+# Симуляция на разных наборах (simulation sets)
+foreach t_set [ get_filesets test* ] {
+    current_fileset -simset $t_set
+    file mkdir $origin_dir/$project_name/sim_output/${t_set}
 
-# # Команда сбрасывает время симуляции
-#    set_property -name xsim.simulate.runtime -value 0 -objects [get_filesets ${t_set}]
+# Команда сбрасывает время симуляции
+   set_property -name xsim.simulate.runtime -value 0 -objects [get_filesets ${t_set}]
 
-#    launch_simulation
+   launch_simulation
 
-# # Запуск симуляции на 100000ns и перенаправление вывода из TCL-консоли в файл
-#    restart
-#    run 100000ns > "$origin_dir/$project_name/sim_output/${t_set}/sim_output.txt"
+# Запуск симуляции на 100000ns и перенаправление вывода из TCL-консоли в файл
+   restart
+   run 100000ns > "$origin_dir/$project_name/sim_output/${t_set}/sim_output.txt"
 
-#    close_sim
-# }
+   close_sim
+}
 
 # Имплементация на разных наборах (constraints set)
 foreach c_set [ get_filesets constr* ] {

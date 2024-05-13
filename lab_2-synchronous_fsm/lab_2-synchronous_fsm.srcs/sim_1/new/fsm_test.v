@@ -52,7 +52,7 @@ end
 task test_fsm_1;
 reg test_result;
 begin
-    $display("\n[%0t]: Тест 1.", $time);
+    $display("\n[%0t]: РўРµСЃС‚ 1.", $time);
     test_res(16'b0000000000000101, 16'b1000000000000001, 16'b0000000000000011, 
              16'b0000000000000001, 16'b1000000000000100, 16'b0000000000000010, 
              16'b0000000000000010, 16'b1000000000000001, 16'b0000000000000101,
@@ -66,7 +66,7 @@ endtask
 task test_fsm_2;
 reg test_result;
 begin
-    $display("\n[%0t]: Тест 2.", $time);
+    $display("\n[%0t]: РўРµСЃС‚ 2.", $time);
     test_res(16'b0000000000000111, 16'b1000000000000010, 16'b0000000000000001, 
              16'b0000000000001111, 16'b1000000000001010, 16'b1000000000000001, 
              16'b0000000000001010, 16'b1000000000001010, 16'b0000000000000100,
@@ -80,7 +80,7 @@ endtask
 task test_fsm_3;
 reg test_result;
 begin
-    $display("\n[%0t]: Тест 3.", $time);
+    $display("\n[%0t]: РўРµСЃС‚ 3.", $time);
     test_res(16'b0000000000010001, 16'b1000000010011100, 16'b0000000000001011, 
              16'b0000000000001011, 16'b0000000001111001, 16'b1000000000001110, 
              16'b0000000000000011, 16'b1000000000101110, 16'b0000000000101101,
@@ -94,7 +94,7 @@ endtask
 task test_fsm_4;
 reg test_result;
 begin
-    $display("\n[%0t]: Тест 4.", $time);
+    $display("\n[%0t]: РўРµСЃС‚ 4.", $time);
     test_error(16'b0000000000000000, 16'b1000000000000001, 16'b0000000000000011, 
                16'b0000000000000001, 16'b1000000000000100, 16'b0000000000000010, 
                16'b0000000000000010, 16'b1000000000000001, 16'b0000000000000000,
@@ -107,7 +107,7 @@ endtask
 task test_fsm_5;
 reg test_result;
 begin
-    $display("\n[%0t]: Тест 5.", $time);
+    $display("\n[%0t]: РўРµСЃС‚ 5.", $time);
     test_error(16'b0000000000000000, 16'b0000000000000000, 16'b0000000000000011, 
                16'b0000000000000001, 16'b1000000000000100, 16'b0000000000000010, 
                16'b0000000000000010, 16'b1000000000000001, 16'b0000000000000000,
@@ -128,7 +128,7 @@ begin
     formula(a11, a12, a13, a21, a22, a23, a31, a32, a33, b1, b2, b3, 
             result_real[0], result_real[1], result_real[2], error);
     
-    $display("Входные данные:");
+    $display("Р’С…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ:");
     $display("a11 = %0d, a12 = %0d, a13 = %0d", 
         $signed(a11[15]? {a11[15], ~a11[14:0] + 1'b1}: a11), 
         $signed(a12[15]? {a12[15], ~a12[14:0] + 1'b1}: a12), 
@@ -145,11 +145,11 @@ begin
         $signed(b1[15]? {b1[15], ~b1[14:0] + 1'b1}: b1), 
         $signed(b2[15]? {b2[15], ~b2[14:0] + 1'b1}: b2), 
         $signed(b3[15]? {b3[15], ~b3[14:0] + 1'b1}: b3));
-    $display("Ожидаемые результаты:");
+    $display("РћР¶РёРґР°РµРјС‹Рµ СЂРµР·СѓР»СЊС‚Р°С‚С‹:");
     $display("x1 = %0h", result_x1_expected);
     $display("x2 = %0h", result_x2_expected);
     $display("x3 = %0h", result_x3_expected);
-    $display("Фактические результаты:");
+    $display("Р¤Р°РєС‚РёС‡РµСЃРєРёРµ СЂРµР·СѓР»СЊС‚Р°С‚С‹:");
     $display("x1 = %0h", result_real[0]);
     $display("x2 = %0h", result_real[1]);
     $display("x3 = %0h", result_real[2]);
@@ -170,7 +170,7 @@ reg [1:0] error;
 begin
     formula(a11, a12, a13, a21, a22, a23, a31, a32, a33, b1, b2, b3, 
             result_real[0], result_real[1], result_real[2], error);
-    $display("Входные данные:");
+    $display("Р’С…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ:");
     $display("a11 = %0d, a12 = %0d, a13 = %0d", $signed(a11[15]? {a11[15], ~a11[14:0] + 1'b1}: a11), 
                                                 $signed(a12[15]? {a12[15], ~a12[14:0] + 1'b1}: a12), 
                                                 $signed(a13[15]? {a13[15], ~a13[14:0] + 1'b1}: a13));
@@ -183,8 +183,8 @@ begin
     $display("b1 = %0d, b2 = %0d, b3 = %0d",$signed(b1[15]? {b1[15], ~b1[14:0] + 1'b1}: b1), 
                                             $signed(b2[15]? {b2[15], ~b2[14:0] + 1'b1}: b2), 
                                             $signed(b3[15]? {b3[15], ~b3[14:0] + 1'b1}: b3)); 
-    $display("Ожидаемый номер ошибки: %0d", error_in);
-    $display("Фактический номер ошибки: %0d", error);
+    $display("РћР¶РёРґР°РµРјС‹Р№ РЅРѕРјРµСЂ РѕС€РёР±РєРё: %0d", error_in);
+    $display("Р¤Р°РєС‚РёС‡РµСЃРєРёР№ РЅРѕРјРµСЂ РѕС€РёР±РєРё: %0d", error);
     
     test_result = error == error_in;
 end
@@ -272,27 +272,27 @@ task test_info;
 begin
     test_register[test_number-1] = test_result;
     if (test_result)
-        $display("[%0t]: Тест %0d пройден.", $time, test_number);
+        $display("[%0t]: РўРµСЃС‚ %0d РїСЂРѕР№РґРµРЅ.", $time, test_number);
     else
-        $display("[%0t]: Тест %0d НЕ пройден.", $time, test_number);  
+        $display("[%0t]: РўРµСЃС‚ %0d РќР• РїСЂРѕР№РґРµРЅ.", $time, test_number);  
 end
 endtask
 
 task test_show_stats;
 integer i, test_counter;
 begin
-    $display("\nРезультаты тестирования:");
+    $display("\nР РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ:");
     test_counter = 0;
     
     for (i = 0; i < TEST_COUNT; i = i + 1)
     begin
         if (test_register[i])
-            $display("Тест %1d пройден.", i+1);
+            $display("РўРµСЃС‚ %1d РїСЂРѕР№РґРµРЅ.", i+1);
         else
-            $display("Тест %1d НЕ пройден.", i+1);    
+            $display("РўРµСЃС‚ %1d РќР• РїСЂРѕР№РґРµРЅ.", i+1);    
         test_counter = test_counter + (test_register[i] ? 1 : 0);
     end
-    $display("Пройдено тестов: %0d/%0d", test_counter, TEST_COUNT);  
+    $display("РџСЂРѕР№РґРµРЅРѕ С‚РµСЃС‚РѕРІ: %0d/%0d", test_counter, TEST_COUNT);  
 end
 endtask
 
