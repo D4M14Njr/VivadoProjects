@@ -10,8 +10,6 @@ reg [7:0] mask = 8'b00011110;
 reg [31:0] display = 0;
 reg [4:0] first_one = 5'd16;
 reg [2:0] digit_pos = 0;
-reg error = 0;
-
 reg [16:0] number = 0;
 
 wire [1:0] i, j;
@@ -34,8 +32,8 @@ PS2_manager ps2_m(
 fsm f(
     .data(number),
     .first_one(first_one),
-    .input_enable(kb_r_o & (kb_out[5:4] == 2'b01) & ~fsm_r_o),
-    .reset(kb_r_o & (kb_out[5:4] == 2'b10)),
+    .input_enable(kb_r_o & (kb_out[6:4] == 3'b001) & ~fsm_r_o),
+    .reset(kb_r_o & (kb_out[6:4] == 3'b010)),
     .clk(calc_clk),
     .mode(mode),
     .float_data_out(result_out),
@@ -62,11 +60,9 @@ clk_div #(2) div2( // change it to 20
     .clk(clk),
     .clk_d(calc_clk));
 
-
-
 always@(posedge clk)
 begin
-    if (mode) begin
+    if (mode & ~(kb_r_o & kb_out[6:4] == 3'b010)) begin
         mask <= 0;
         if (error_out == 0)
             display <= result_out;
@@ -93,7 +89,7 @@ begin
                     if (digit_pos < 3'b100) begin
                         if (|(kb_out[3:0]) | digit_pos != 0) begin
                             number <= {number[16], number[11:0], kb_out[3:0]};
-                            mask <= {mask[7:5], mask[4:0] << 1};
+                            
                             digit_pos <= digit_pos + 1;
                             if (digit_pos == 0)
                                 casex(kb_out[3:0])
@@ -102,8 +98,10 @@ begin
                                     4'b0xxx: first_one <= 2;
                                     4'bxxxx: first_one <= 3;
                                 endcase
-                            else
+                            else begin
                                 first_one <= first_one + 4;
+                                mask <= {mask[7:5], mask[4:0] << 1};
+                            end
                         end
                     end
                 3'b001:
@@ -123,22 +121,29 @@ begin
                     mask <= 8'b0001_1110;
                 end
                 3'b011: begin
-                    number <= {number[16], 4'b0, number[15:4]};
+                    if (number[15:0] != 0 && digit_pos == 1)
+                        number = {5'b0, number[15:4]};
+                    else
+                        number = {number[16], 4'b0, number[15:4]};
+                    
                     if (digit_pos != 0) begin
                         first_one <= first_one - 4;
                         digit_pos <= digit_pos - 1;
-                        mask <= {mask[7:5], 1'b1, mask[4:1]}; 
+                        mask <= {mask[7:5], 1'b1, mask[4:2], 1'b0}; 
                     end
-                    else if (number[15:0] == 0)
+                    else if (number[15:0] == 0) begin
                         first_one <= 5'd16;
+                        mask <= {mask[7:5], 5'b11110}; 
+                    end
                 end
                 3'b100: begin
-                    number <= {~number[16], number[15:0]};
-                    if (|(number[15:0]))
+                    if (|(number[15:0])) begin
+                        number <= {~number[16], number[15:0]};
                         if (number[16])
-                            mask <= {mask[7:5], 1'b1, mask[3:0]};
+                            mask <= {mask[7:5], 1'b1, mask[4:1]};
                         else
                             mask <= {mask[7:5], mask[4:0] << 1};
+                    end
                 end
             endcase
     end

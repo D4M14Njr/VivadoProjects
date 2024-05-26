@@ -40,7 +40,7 @@ initial begin
     NUMBERS[15] = 11'b01101010011;
 end
 
-main ma (
+main ma(
     .PS2_dat(PS2_dat),
     .PS2_clk(PS2_clk),
     .clk(clk),
@@ -282,7 +282,7 @@ begin
     press(ENTER_CODE);
     #100;
     
-    #2000;
+    @(posedge ma.f.ready_output);
   
     $display("\n13) Проверка вывода результата на индикаторах.");
     if (error_expected == 0) begin
@@ -306,7 +306,9 @@ begin
     end
     else begin
         test_segs(0, 8'b00000000, 0, 0, error_expected, test_result);
-        test_register[12] = test_result & (result_led == get_result_led_mask(3));
+        $display("\nОжидаемые сигналы на светодиодах, отвечающих за номер результата: %b", get_result_led_mask(0));
+        $display("Фактические сигналы на светодиодах, отвечающих за номер результата: %b", result_led);
+        test_register[12] = test_result & (result_led == get_result_led_mask(0));
     end
 
     press(RESET_CODE);#100;
@@ -330,14 +332,13 @@ reg [3:0] arr [0:3];
 begin
     arr[3] = inp[15:12]; arr[2] = inp[11:8];
     arr[1] = inp[7:4]; arr[0] = inp[3:0];
-    if (inp[16]) begin
-        press(MINUS_CODE);
-        #100;
-    end
     first_digit = get_first_digit({1'b0, inp[15:0]});
-    
     for (i = first_digit; i >= 0; i = i - 1) begin
         press(NUMBERS[arr[i]]);
+        #100;
+    end
+    if (inp[16]) begin
+        press(MINUS_CODE);
         #100;
     end
 end

@@ -1,20 +1,8 @@
-module fsm (
-    input [16:0] data,
-    input [4:0] first_one,
-    input input_enable,
-    input reset,
+module calc_fsm(
     input clk,
-    output reg mode,
-    output reg [31:0] float_data_out,
-    output reg ready_output,
-    output reg [1:0] i, j,
+    
     output reg [1:0] error_out);
-
-parameter S0 = 4'h0, S1 = 4'h1, S2 = 4'h2, S3 = 4'h3,
-          S4 = 4'h4, S5 = 4'h5, S6 = 4'h6, S7 = 4'h7,
-          S8 = 4'h8, S9 = 4'h9, S10 = 4'ha, S11 = 4'hb,
-          S12 = 4'hc, S13 = 4'hd, S14 = 4'he;
-
+    
 parameter [1:0] INF_ERROR = 2'b01, NAN_ERROR = 2'b10;
 parameter [30:0] e = 31'b01110001_10100011011011100010111; //0.0001
 
@@ -27,74 +15,12 @@ reg [31:0] X_NEW [2:0];
 reg [30:0] x_change [2:0];
 reg [6:0] calc_cnt;
 reg [1:0] a, b, c;
-
-initial state <= S0;
+reg calc_time = 0;
 
 always@(posedge clk)
 begin
-    if (reset)
-        state <= S0;
-    else
+    if (calc_time)
         case(state)
-            S0: begin
-                MATRIX[0][0] <= 0; MATRIX[0][1] <= 0; MATRIX[0][2] <= 0;
-                MATRIX[1][0] <= 0; MATRIX[1][1] <= 0; MATRIX[1][2] <= 0;
-                MATRIX[2][0] <= 0; MATRIX[2][1] <= 0; MATRIX[2][2] <= 0;
-                VECTOR[0] <= 0; VECTOR[1] <= 0; VECTOR[2] <= 0;  
-                X[0] <= 0; X[1] <= 0; X[2] <= 0;
-                X_NEW[0] <= 0; X_NEW[1] <= 0; X_NEW[2] <= 0;
-                
-                mode <= 0;
-                error_out <= 0;
-                ready_output <= 0;
-                calc_cnt <= 0;
-                i <= 0; j <= 0;
-                a <= 0; b <= 0; c <= 1;
-                state <= S1;
-            end
-            S1: if (input_enable) 
-            begin
-                if (first_one == 5'd16) begin
-                    MATRIX[i][j] <= 32'b0;
-                end
-                else begin
-                    MATRIX[i][j] <= {data[16], 8'd127 + first_one, data[15:0] << (5'd16 - first_one), 7'b0};
-                end
-                state <= S2;
-            end
-            S2: begin
-                if (j == 2) begin
-                    i = i + 1;
-                    j = 0;
-                end
-                else j = j + 1;
- 
-                if (i == 3) begin 
-                    i = 0;
-                    j = 3;
-                    state <= S3;
-                end
-                else state <= S1;
-            end
-            S3: if (input_enable)
-            begin        
-                if (first_one == 5'd16)
-                    VECTOR[i] <= 32'b0;
-                else
-                    VECTOR[i] <= {data[16], 8'd127 + first_one, data[15:0] << (5'd16 - first_one), 7'b0};
-                DIAGONAL[i] <= MATRIX[i][i];
-                state <= S4;
-            end
-            S4: begin
-                if (i == 2) begin
-                    i <= 0;
-                    state <= S5;
-                end
-                else begin
-                    i <= i + 1;
-                    state <= S3;
-                end
-            end
             S5: begin
                 MATRIX[a][b] <= div_float(MATRIX[a][c], {~DIAGONAL[a][31], DIAGONAL[a][30:0]});
                 state <= S6;
@@ -163,6 +89,7 @@ begin
                 begin
                     a <= 0;
                     mode <= 1;
+                    calc_time <= 0;
                     if (error_out == 0)
                         state <= S12;
                     else begin
@@ -175,26 +102,8 @@ begin
                     state <= S9;
                 end
             end
-            S12: begin
-                float_data_out <= X[i];
-                ready_output <= 1;
-                state <= S13;
-            end
-            S13: begin
-                ready_output <= 0;
-                if (input_enable) begin
-                    if (i == 2)
-                        i <= 0;
-                    else
-                       i <= i + 1;
-                    state <= S12;
-                end
-            end
-            S14: ready_output <= 0;
         endcase
 end
-
-
 
 
 
