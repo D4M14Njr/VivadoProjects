@@ -25,12 +25,12 @@ begin
         memory[i] <= {WORD_SIZE{1'b0}};
 end
 
-// ÐžÐ¿ÐµÑ€Ð°Ñ†Ð¸Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸
+// Îïåðàöèÿ çàïèñè
 always@(posedge clk)
     if (enable && write_mode && !full)
         memory[write_pointer] <= data_in;
 
-// ÐžÐ¿ÐµÑ€Ð°Ñ†Ð¸Ñ Ñ‡Ñ‚ÐµÐ½Ð¸Ñ
+// Îïåðàöèÿ ÷òåíèÿ
 always@(posedge clk)
     if (reset) begin
         valid <= 1'b0;
@@ -43,7 +43,7 @@ always@(posedge clk)
     else 
         valid <= 1'b0;
 
-// Ð‘Ð»Ð¾Ðº Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¾Ð² ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÐµÐ¹ Ð¸ Ñ„Ð»Ð°Ð³Ð¾Ð²
+// Áëîê èçìåíåíèÿ ðåãèñòðîâ óêàçàòåëåé è ôëàãîâ
 always@(posedge clk)
     if (reset) begin
         write_pointer <= {ADDR_SIZE{1'b0}};
@@ -67,7 +67,7 @@ begin
 end
 endfunction
 
-// Ð‘Ð»Ð¾Ðº Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ñ ÑÐ»ÐµÐ´ÑƒÑ‰Ð¸Ñ… Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¾Ð² ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÐµÐ¹ Ð¸ Ñ„Ð»Ð°Ð³Ð¾Ð²
+// Áëîê îïðåäåëåíèÿ ñëåäóùèõ çíà÷åíèé ðåãèñòðîâ óêàçàòåëåé è ôëàãîâ
 reg [1:0] operation;
 localparam NONE = 0, READ = 1, WRITE = 2, READ_AND_WRITE = 3;
 

@@ -142,7 +142,7 @@ endfunction
 task test_top_1;
     output reg [13:0] test_register;
 begin
-    $display("\nРЎС†РµРЅР°СЂРёР№ 1. Р’С‹С‡РёСЃР»РµРЅРёРµ РЅРµРёР·РІРµСЃС‚РЅС‹С… СѓСЂР°РІРЅРµРЅРёСЏ РїРѕ РјРµС‚РѕРґСѓ Р—РµР№РґРµР»СЏ (РїРѕР·РёС‚РёРІРЅС‹Р№ СЃС†РµРЅР°СЂРёР№)");
+    $display("\nСценарий 1. Вычисление неизвестных уравнения по методу Зейделя (позитивный сценарий)");
     test_script(16'b0000000000000101, 16'b1000000000000001, 16'b0000000000000011, 
                 16'b0000000000000001, 16'b1000000000000100, 16'b0000000000000010, 
                 16'b0000000000000010, 16'b1000000000000001, 16'b0000000000000101,
@@ -154,7 +154,7 @@ endtask
 task test_top_2;
     output reg [13:0] test_register;
 begin
-    $display("\nРЎС†РµРЅР°СЂРёР№ 2. РћС€РёР±РєР° РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ (РЅРµРіР°С‚РёРІРЅС‹Р№ СЃС†РµРЅР°СЂРёР№)");
+    $display("\nСценарий 2. Ошибка переполнения (негативный сценарий)");
     test_script(16'b0000000000000000, 16'b1000000000000001, 16'b0000000000000011, 
                 16'b0000000000000001, 16'b1000000000000100, 16'b0000000000000010, 
                 16'b0000000000000010, 16'b1000000000000001, 16'b0000000000000000,
@@ -176,80 +176,80 @@ reg [31:0] res_real;
 reg error_real;
 begin
     @(posedge clk); SW = a11; #100;
-    $display("\n1) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a11.");
+    $display("\n1) Проверка ввода a11.");
     test_segs({16'ha110, 1'b0, a11[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a11) + 1)}, get_first_digit(a11), a11[15], 0, test_result);
     test_register[0] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a12; #100;
-    $display("\n2) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a12.");
+    $display("\n2) Проверка ввода a12.");
     test_segs({16'ha120, 1'b0, a12[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a12) + 1)}, get_first_digit(a12), a12[15], 0, test_result);
     test_register[1] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a13; #100;
-    $display("\n3) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a13.");
+    $display("\n3) Проверка ввода a13.");
     test_segs({16'ha130, 1'b0, a13[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a13) + 1)}, get_first_digit(a13), a13[15], 0, test_result);
     test_register[2] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a21; #100;
-    $display("\n4) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a21.");
+    $display("\n4) Проверка ввода a21.");
     test_segs({16'ha210, 1'b0, a21[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a21) + 1)}, get_first_digit(a21), a21[15], 0, test_result);
     test_register[3] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a22; #100;
-    $display("\n5) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a22.");
+    $display("\n5) Проверка ввода a22.");
     test_segs({16'ha220, 1'b0, a22[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a22) + 1)}, get_first_digit(a22), a22[15], 0, test_result);
     test_register[4] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a23; #100;
-    $display("\n6) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a23.");
+    $display("\n6) Проверка ввода a23.");
     test_segs({16'ha230, 1'b0, a23[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a23) + 1)}, get_first_digit(a23), a23[15], 0, test_result);
     test_register[5] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a31; #100;
-    $display("\n7) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a31.");
+    $display("\n7) Проверка ввода a31.");
     test_segs({16'ha310, 1'b0, a31[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a31) + 1)}, get_first_digit(a31), a31[15], 0, test_result);
     test_register[6] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a32; #100;
-    $display("\n8) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a32.");
+    $display("\n8) Проверка ввода a32.");
     test_segs({16'ha320, 1'b0, a32[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a32) + 1)}, get_first_digit(a32), a32[15], 0, test_result);
     test_register[7] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = a33; #100;
-    $display("\n9) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° a33.");
+    $display("\n9) Проверка ввода a33.");
     test_segs({16'ha330, 1'b0, a33[14:0]}, {3'b0, 5'b11111 << (get_first_digit(a33) + 1)}, get_first_digit(a33), a33[15], 0, test_result);
     test_register[8] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
 
     @(posedge clk); SW = b1; #100;
-    $display("\n10) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° b1.");
+    $display("\n10) Проверка ввода b1.");
     test_segs({16'hb100, 1'b0, b1[14:0]}, {2'b01, 5'b11111 << (get_first_digit(b1) + 1)}, get_first_digit(b1), b1[15], 0, test_result);
     test_register[9] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     @(posedge clk); SW = b2; #100;
-    $display("\n11) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° b2.");
+    $display("\n11) Проверка ввода b2.");
     test_segs({16'hb200, 1'b0, b2[14:0]}, {2'b01, 5'b11111 << (get_first_digit(b2) + 1)}, get_first_digit(b2), b2[15], 0, test_result);
     test_register[10] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
 
     @(posedge clk); SW = b3; #100;
-    $display("\n12) РџСЂРѕРІРµСЂРєР° РІРІРѕРґР° b3.");
+    $display("\n12) Проверка ввода b3.");
     test_segs({16'hb300, 1'b0, b3[14:0]}, {2'b01, 5'b11111 << (get_first_digit(b3) + 1)}, get_first_digit(b3), b3[15], 0, test_result);
     test_register[11] = test_result;
     btn_c(PRESS, 16); btn_c(RELEASE, 16);
     
     #2000;
   
-    $display("\n13) РџСЂРѕРІРµСЂРєР° РІС‹РІРѕРґР° СЂРµР·СѓР»СЊС‚Р°С‚Р° РЅР° РёРЅРґРёРєР°С‚РѕСЂР°С….");
+    $display("\n13) Проверка вывода результата на индикаторах.");
     if (error_expected == 0) begin
         test_segs(res_x1_expected, 8'b00000000, 0, 0, 0, test_result);
         test_register[12] = test_result & (result_led == get_result_led_mask(0));
@@ -271,7 +271,7 @@ begin
     btn_reset(RELEASE, 16);
     #100;
     
-    $display("\n14) РџСЂРѕРІРµСЂРєР° СЃР±СЂРѕСЃР° СЂРµР·СѓР»СЊС‚Р°С‚Р° РЅР° РёРЅРґРёРєР°С‚РѕСЂР°С….");
+    $display("\n14) Проверка сброса результата на индикаторах.");
     test_segs({16'ha110, 1'b0, SW[14:0]}, {3'b0, 5'b11111 << (get_first_digit(SW) + 1)}, get_first_digit(SW), SW[15], 0, test_result);
     test_register[14] = test_result;
 end
@@ -286,7 +286,7 @@ begin
     jitter(ENABLE);
     btn_c_in = ~signal_in;
     @(posedge clk) btn_c_in = signal_in;
-    $display("[%0t]: РЎРёРіРЅР°Р» %b РїРѕРґР°РЅ РЅР° Р»РёРЅРёСЋ.", $time, signal_in);
+    $display("[%0t]: Сигнал %b подан на линию.", $time, signal_in);
     
     repeat(ticks + 1)
         @(posedge clk);  
@@ -301,7 +301,7 @@ begin
     jitter(RESET);
     btn_reset_in = ~signal_in;
     @(posedge clk) btn_reset_in = signal_in;
-    $display("\n[%0t]: РЎРёРіРЅР°Р» %b РїРѕРґР°РЅ РЅР° Р»РёРЅРёСЋ btn_reset_in.", $time, signal_in);
+    $display("\n[%0t]: Сигнал %b подан на линию btn_reset_in.", $time, signal_in);
  
     repeat(ticks + 1)
         @(posedge clk);  
@@ -311,7 +311,7 @@ endtask
 task jitter;
     input btn;
 begin
-    $display("Р”СЂРµР±РµР·Рі РЅР° РєРЅРѕРїРєРµ");
+    $display("Дребезг на кнопке");
     $srandom(33985);
     if(btn == ENABLE)
         repeat($urandom_range(50,0))
@@ -340,36 +340,36 @@ begin
     test_result = 1;
     wait(AN == get_an_mask(0));
 
-    $display("Р—РЅР°С‡РµРЅРёРµ: %h", value);
+    $display("Значение: %h", value);
     if (error_in == 0)
         for (i = 0; i < 8; i = i + 1)
         begin
             @(posedge clk_div);
             if(mask[i] == 0)
             begin
-                $display("[%0t] РќРѕРјРµСЂ РёРЅРґРёРєР°С‚РѕСЂР°: %0d", $time, i);
+                $display("[%0t] Номер индикатора: %0d", $time, i);
                 if (negative & (i == munus_pos)) begin
-                    $display("РћР¶РёРґР°РµРјС‹Рµ СЃРёРіРЅР°Р»С‹ РЅР° Р»РёРЅРёРё РєР°С‚РѕРґРѕРІ: %b", 8'b10111111);
+                    $display("Ожидаемые сигналы на линии катодов: %b", 8'b10111111);
                     if (CATH != 8'b10111111)
                         test_result = 0;
                 end
                 else begin
-                    $display("РћР¶РёРґР°РµРјС‹Рµ СЃРёРіРЅР°Р»С‹ РЅР° Р»РёРЅРёРё РєР°С‚РѕРґРѕРІ: %b", get_cath_mask(value[(i+1)*4-1 -: 4]));
+                    $display("Ожидаемые сигналы на линии катодов: %b", get_cath_mask(value[(i+1)*4-1 -: 4]));
                     if (CATH != get_cath_mask(value[(i+1)*4-1 -: 4]))
                         test_result = 0;
                 end
                 
-                $display("Р¤Р°РєС‚РёС‡РµСЃРєРёРµ СЃРёРіРЅР°Р»С‹ РЅР° Р»РёРЅРёРё РєР°С‚РѕРґРѕРІ: %b", CATH);
+                $display("Фактические сигналы на линии катодов: %b", CATH);
             end
         end
     else
         for  (i = 0; i < 8; i = i + 1)
         begin
             @(posedge clk_div);
-            $display("[%0t] РќРѕРјРµСЂ РёРЅРґРёРєР°С‚РѕСЂР°: %0d", $time, i);
+            $display("[%0t] Номер индикатора: %0d", $time, i);
                 
-            $display("РћР¶РёРґР°РµРјС‹Рµ СЃРёРіРЅР°Р»С‹ РЅР° Р»РёРЅРёРё РєР°С‚РѕРґРѕРІ: %b", get_error_cath_mask(i, error_in));
-            $display("Р¤Р°РєС‚РёС‡РµСЃРєРёРµ СЃРёРіРЅР°Р»С‹ РЅР° Р»РёРЅРёРё РєР°С‚РѕРґРѕРІ: %b", CATH);
+            $display("Ожидаемые сигналы на линии катодов: %b", get_error_cath_mask(i, error_in));
+            $display("Фактические сигналы на линии катодов: %b", CATH);
             
             if (CATH != get_error_cath_mask(i, error_in))
                 test_result = 0;
@@ -382,23 +382,23 @@ integer i, j;
 reg [1:0] test_counter;
 begin        
     test_counter = 0;
-    $display("\n[%0t]: Р РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ:", $time);
+    $display("\n[%0t]: Результаты тестирования:", $time);
     
     for (i = 0; i < TEST_COUNT; i = i + 1)
     begin
         if (&(test_register[i]))
         begin
-            $display("РЎС†РµРЅР°СЂРёР№ %0d РїСЂРѕР№РґРµРЅ СѓСЃРїРµС€РЅРѕ.", i+1);
+            $display("Сценарий %0d пройден успешно.", i+1);
             test_counter = test_counter + 1;
         end
         else begin      
-            $display("РЎС†РµРЅР°СЂРёР№ %0d РќР• РїСЂРѕР№РґРµРЅ.", i+1); 
+            $display("Сценарий %0d НЕ пройден.", i+1); 
             for (j = 0; j < 14; j = j + 1)
                 if (!test_register[i][j])
-                    $display("РћС€РёР±РєР° РЅР° С€Р°РіРµ %0d", j + 1); 
+                    $display("Ошибка на шаге %0d", j + 1); 
             end        
     end  
-    $display("РџСЂРѕР№РґРµРЅРѕ СЃС†РµРЅР°СЂРёРµРІ: %0d/%0d", test_counter, TEST_COUNT); 
+    $display("Пройдено сценариев: %0d/%0d", test_counter, TEST_COUNT); 
 end
 endtask
 

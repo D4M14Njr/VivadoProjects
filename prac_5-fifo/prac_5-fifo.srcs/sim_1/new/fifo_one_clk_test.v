@@ -57,48 +57,48 @@ reg fll;
 
 task fifo_test1;
 begin
-    $display("\n1) Р‘СѓС„РµСЂ РїСѓСЃС‚. Р—Р°РїСЂРѕСЃ РЅР° С‡С‚РµРЅРёРµ.");
+    $display("\n1) Буфер пуст. Запрос на чтение.");
     r_p <= uut.read_pointer;
     emp <= uut.empty;
     @(posedge clk); read();
     if (~val && r_p == uut.read_pointer && emp == uut.empty) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[0] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
 
 task fifo_test2;
 begin
-    $display("\n2) Р‘СѓС„РµСЂ РїСѓСЃС‚. Р—Р°РїСЂРѕСЃ РЅР° Р·Р°РїРёСЃСЊ.");
+    $display("\n2) Буфер пуст. Запрос на запись.");
     w_p <= uut.write_pointer;
     @(posedge clk); write(4'b0001);
     if (mem == 4'b0001 && 
         w_p == uut.write_pointer - 1 && 
         uut.empty == 0) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[1] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
 
 task fifo_test3;
 begin
-    $display("\n3) Р‘СѓС„РµСЂ РїСѓСЃС‚. РџР°СЂР°Р»Р»РµР»СЊРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ Р·Р°РїРёСЃРё Рё С‡С‚РµРЅРёСЏ.");
+    $display("\n3) Буфер пуст. Параллельные запросы записи и чтения.");
     r_p <= uut.read_pointer; w_p <= uut.write_pointer;
     @(posedge clk); write_and_read(4'b0001);
     if (~val && mem == 4'b0001 && 
         r_p == uut.read_pointer && 
         w_p == uut.write_pointer - 1 && 
         uut.empty == 0) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[2] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
@@ -106,14 +106,14 @@ endtask
 task fifo_test4;
 begin
     fill(4, 4);
-    $display("\n4) РЎР»СѓС‡Р°Р№РЅРѕРµ С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ. Р—Р°РїСЂРѕСЃ РЅР° С‡С‚РµРЅРёРµ.");
+    $display("\n4) Случайное тестирование. Запрос на чтение.");
     r_p <= uut.read_pointer;
     @(posedge clk); read();
     if (val && res == 4'b0100 && r_p == uut.read_pointer - 1) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[3] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
@@ -121,14 +121,14 @@ endtask
 task fifo_test5;
 begin
     fill(5, 4);
-    $display("\n5) РЎР»СѓС‡Р°Р№РЅРѕРµ С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ. Р—Р°РїСЂРѕСЃ РЅР° Р·Р°РїРёСЃСЊ.");
+    $display("\n5) Случайное тестирование. Запрос на запись.");
     w_p <= uut.write_pointer;
     @(posedge clk); write(4'b0110);
     if (mem == 4'b0110 && w_p == uut.write_pointer - 1) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[4] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");    
+    else $display("Тест НЕ пройден");    
     reset_fifo();
 end
 endtask
@@ -136,17 +136,17 @@ endtask
 task fifo_test6;
 begin
     fill(6, 4);
-    $display("\n6) РЎР»СѓС‡Р°Р№РЅРѕРµ С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ. РџР°СЂР°Р»Р»РµР»СЊРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ Р·Р°РїРёСЃРё Рё С‡С‚РµРЅРёСЏ.");
+    $display("\n6) Случайное тестирование. Параллельные запросы записи и чтения.");
     r_p <= uut.read_pointer; w_p <= uut.write_pointer;
     @(posedge clk); write_and_read(4'b0111);
     if (val && res == 4'b0110 && 
         mem == 4'b0111 && 
         r_p == uut.read_pointer - 1 && 
         w_p == uut.write_pointer - 1) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[5] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");    
+    else $display("Тест НЕ пройден");    
     reset_fifo();
 end
 endtask
@@ -154,13 +154,13 @@ endtask
 task fifo_test7;
 begin
     fill(7, 8);
-    $display("\n7) Р‘СѓС„РµСЂ Р·Р°РїРѕР»РЅРµРЅ. Р—Р°РїСЂРѕСЃ РЅР° С‡С‚РµРЅРёРµ.");
+    $display("\n7) Буфер заполнен. Запрос на чтение.");
     @(posedge clk); read();
     if (val && res == 4'b0111 && r_p == uut.read_pointer - 1 && uut.full == 0) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[6] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
@@ -168,14 +168,14 @@ endtask
 task fifo_test8;
 begin
     fill(8, 8);
-    $display("\n8) Р‘СѓС„РµСЂ Р·Р°РїРѕР»РЅРµРЅ. Р—Р°РїСЂРѕСЃ РЅР° Р·Р°РїРёСЃСЊ.");
+    $display("\n8) Буфер заполнен. Запрос на запись.");
     w_p <= uut.write_pointer; fll <= uut.full;
     @(posedge clk); write(4'b1001);
     if (w_p == uut.write_pointer && fll == uut.full) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[7] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");    
+    else $display("Тест НЕ пройден");    
     reset_fifo();
 end
 endtask
@@ -183,16 +183,16 @@ endtask
 task fifo_test9;
 begin
     fill(9, 8);
-    $display("\n9) Р‘СѓС„РµСЂ Р·Р°РїРѕР»РЅРµРЅ. РџР°СЂР°Р»Р»РµР»СЊРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ Р·Р°РїРёСЃРё Рё С‡С‚РµРЅРёСЏ.");
+    $display("\n9) Буфер заполнен. Параллельные запросы записи и чтения.");
     r_p <= uut.read_pointer; w_p <= uut.write_pointer;
     @(posedge clk); write_and_read(4'b0001);
     if (val && res == 4'b1001 && 
         r_p == uut.read_pointer - 1 && 
         w_p == uut.write_pointer && uut.full == 0) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[8] = 1;
     end
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
@@ -201,20 +201,20 @@ task fifo_test10;
 begin
     fill(10, 4);
     @(posedge clk);
-    $display("\n10) РЎР±СЂРѕСЃ РІРЅСѓС‚СЂРµРЅРЅРёС… СЂРµРіРёСЃС‚СЂРѕРІ Р±СѓС„РµСЂР°.");
-    $display("[%0t]: РџРѕРґР°С‡Р° РµРґРёРЅРёС†С‹ РЅР° reset.", $time);
+    $display("\n10) Сброс внутренних регистров буфера.");
+    $display("[%0t]: Подача единицы на reset.", $time);
     reset <= 1'b1;
     @(posedge clk); @(posedge clk);
     reset <= 1'b0;
-    $display("[%0t]: РџРѕРґР°С‡Р° РЅСѓР»СЏ РЅР° reset.", $time);
+    $display("[%0t]: Подача нуля на reset.", $time);
     @(posedge clk);
     if (uut.write_pointer == 0 && 
         uut.read_pointer == 0 && 
         uut.full == 0 && uut.empty == 1) begin
-        $display("РўРµСЃС‚ РїСЂРѕР№РґРµРЅ");
+        $display("Тест пройден");
         test_register[9] = 1;
     end 
-    else $display("РўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ");
+    else $display("Тест НЕ пройден");
     reset_fifo();
 end
 endtask
@@ -228,9 +228,9 @@ begin
     res <= data_out;
     val <= valid;
     if (valid) begin
-        $display("[%0t]: Р”Р°РЅРЅС‹Рµ РЅР° РІС‹С…РѕРґРµ %0d.", $time, data_out);
+        $display("[%0t]: Данные на выходе %0d.", $time, data_out);
     end else
-        $display("[%0t]: РќРµС‚ РІС‹С…РѕРґРЅС‹С… РґР°РЅРЅС‹С….", $time);
+        $display("[%0t]: Нет выходных данных.", $time);
     enable <= 1'b0;
     read_mode <= 1'b0;
     @(posedge clk);
@@ -243,7 +243,7 @@ begin
     write_mode <= 1'b1; 
     data_in <= data;
     @(posedge clk); 
-    $display("[%0t]: Р—Р°РїРёСЃСЊ С‡РёСЃР»Р° %d.", $time, data);
+    $display("[%0t]: Запись числа %d.", $time, data);
     enable <= 1'b1;
     @(posedge clk);
     enable <= 1'b0; 
@@ -262,7 +262,7 @@ begin
     data_in <= data;
     @(posedge clk);
     
-    $display("[%0t]: Р—Р°РїРёСЃСЊ С‡РёСЃР»Р° %d.", $time, data_in);
+    $display("[%0t]: Запись числа %d.", $time, data_in);
     enable <= 1'b1;
     @(posedge clk); 
     @(negedge clk);
@@ -270,9 +270,9 @@ begin
     val <= valid;
     if (valid) begin
         res <= data_out;
-        $display("[%0t]: Р”Р°РЅРЅС‹Рµ РЅР° РІС‹С…РѕРґРµ %0d.", $time, data_out);
+        $display("[%0t]: Данные на выходе %0d.", $time, data_out);
     end 
-    else $display("[%0t]: РќРµС‚ РІС‹С…РѕРґРЅС‹С… РґР°РЅРЅС‹С….", $time);
+    else $display("[%0t]: Нет выходных данных.", $time);
     
     enable <= 1'b0;
     read_mode <= 1'b0;
@@ -317,18 +317,18 @@ integer i, j;
 reg [3:0] test_counter;
 begin        
     test_counter = 0;
-    $display("\n[%0t]: Р РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ:", $time);
+    $display("\n[%0t]: Результаты тестирования:", $time);
     
     for (i = 0; i < TEST_COUNT; i = i + 1)
     begin
         if (&(test_register[i]))
         begin
-            $display("РўРµСЃС‚ %0d РїСЂРѕР№РґРµРЅ СѓСЃРїРµС€РЅРѕ.", i+1);
+            $display("Тест %0d пройден успешно.", i+1);
             test_counter = test_counter + 1;
         end
-        else $display("РўРµСЃС‚ %0d РќР• РїСЂРѕР№РґРµРЅ.", i+1); 
+        else $display("Тест %0d НЕ пройден.", i+1); 
     end  
-    $display("РџСЂРѕР№РґРµРЅРѕ С‚РµСЃС‚РѕРІ: %0d/%0d", test_counter, TEST_COUNT); 
+    $display("Пройдено тестов: %0d/%0d", test_counter, TEST_COUNT); 
 end
 endtask
 

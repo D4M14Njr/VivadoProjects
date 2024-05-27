@@ -21,14 +21,14 @@ begin
     @(posedge clk_div_out);
     t_end = $realtime;
     
-    $display("РћР¶РёРґР°РµРјС‹Р№ РїРµСЂРёРѕРґ СЃРёРіРЅР°Р»Р°: %0d", clk_div_period);
-    $write("Р¤Р°РєС‚РёС‡РµСЃРєРёР№ РїРµСЂРёРѕРґ СЃРёРіРЅР°Р»Р°: ");
+    $display("Ожидаемый период сигнала: %0d", clk_div_period);
+    $write("Фактический период сигнала: ");
     $write((t_end - t_begin));
     
     if ( (t_end - t_begin) == clk_div_period )
-        $display("\nРўРµСЃС‚ РїСЂРѕР№РґРµРЅ.");
+        $display("\nТест пройден.");
     else 
-        $display("\nРўРµСЃС‚ РќР• РїСЂРѕР№РґРµРЅ."); 
+        $display("\nТест НЕ пройден."); 
 end
     
 endmodule

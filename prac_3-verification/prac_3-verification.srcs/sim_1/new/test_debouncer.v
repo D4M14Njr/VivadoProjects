@@ -29,8 +29,8 @@ end
 task test_debouncer_1;
 reg test_result;
 begin
-    $display("\n[%0t]: РўРµСЃС‚ 1. Р РµР°РєС†РёСЏ С„РёР»СЊС‚СЂР° РґСЂРµР±РµР·РіР° РЅР° СЃРёРіРЅР°Р» РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° С€РёРЅРµ С„РёР·. РјР°РЅРёРїСѓР»СЏС‚РѕСЂР°.", $time);
-    $display("[%0t]: (РІСЂРµРјСЏ СѓРґРµСЂР¶Р°РЅРёСЏ СЃРёРіРЅР°Р»Р° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ С‚СЂРµР±СѓРµРјРѕРјСѓ)", $time); 
+    $display("\n[%0t]: Тест 1. Реакция фильтра дребезга на сигнал высокого уровня на шине физ. манипулятора.", $time);
+    $display("[%0t]: (время удержания сигнала соответствует требуемому)", $time); 
     send_signal_to_debouncer(PRESS, 32);
     @(posedge clk) test_result <= (out_signal_enable == 1'b1); 
     send_signal_to_debouncer(RELEASE, 32);
@@ -41,8 +41,8 @@ endtask
 task test_debouncer_2;
 reg test_result;
 begin
-    $display("\n[%0t]: РўРµСЃС‚ 2. Р РµР°РєС†РёСЏ С„РёР»СЊС‚СЂР° РґСЂРµР±РµР·РіР° РЅР° СЃРёРіРЅР°Р» РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° С€РёРЅРµ С„РёР·. РјР°РЅРёРїСѓР»СЏС‚РѕСЂР°.", $time); 
-    $display("[%0t]: (РІСЂРµРјСЏ СѓРґРµСЂР¶Р°РЅРёСЏ СЃРёРіРЅР°Р»Р° РјРµРЅСЊС€Рµ С‚СЂРµР±СѓРµРјРѕРіРѕ)", $time);
+    $display("\n[%0t]: Тест 2. Реакция фильтра дребезга на сигнал высокого уровня на шине физ. манипулятора.", $time); 
+    $display("[%0t]: (время удержания сигнала меньше требуемого)", $time);
     send_signal_to_debouncer(PRESS, 16);
     @(posedge clk); test_result = (out_signal_enable == 1'b0);
     send_signal_to_debouncer(RELEASE, 16);
@@ -53,8 +53,8 @@ endtask
 task test_debouncer_3;
 reg test_result;
 begin
-    $display("\n[%0t]: РўРµСЃС‚ 3. Р РµР°РєС†РёСЏ С„РёР»СЊС‚СЂР° РґСЂРµР±РµР·РіР° РЅР° СЃРёРіРЅР°Р» РЅРёР·РєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° С€РёРЅРµ С„РёР·. РјР°РЅРёРїСѓР»СЏС‚РѕСЂР°.", $time);
-    $display("[%0t]: (С‚РѕР»СЊРєРѕ РґСЂРµР±РµР·Рі РєРѕРЅС‚Р°РєС‚РѕРІ)", $time); 
+    $display("\n[%0t]: Тест 3. Реакция фильтра дребезга на сигнал низкого уровня на шине физ. манипулятора.", $time);
+    $display("[%0t]: (только дребезг контактов)", $time); 
     send_signal_to_debouncer(RELEASE, 32);
     @(posedge clk); test_result = (out_signal_enable == 1'b0);  
     test_info(3, test_result); 
@@ -67,27 +67,27 @@ input test_result;
 begin
     test_register[test_number-1] = test_result;
     if (test_result)
-        $display("[%0t]: РўРµСЃС‚ %0d РїСЂРѕР№РґРµРЅ.", $time, test_number);
+        $display("[%0t]: Тест %0d пройден.", $time, test_number);
     else
-        $display("[%0t]: РўРµСЃС‚ %0d РќР• РїСЂРѕР№РґРµРЅ.", $time, test_number);  
+        $display("[%0t]: Тест %0d НЕ пройден.", $time, test_number);  
 end
 endtask
 
 task test_show_stats;
 integer i, test_counter;
 begin
-    $display("\nР РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ:");
+    $display("\nРезультаты тестирования:");
     test_counter = 0; 
     
     for (i = 0; i < TEST_COUNT; i = i + 1)
     begin
         if (test_register[i])
-            $display("РўРµСЃС‚ %2d РїСЂРѕР№РґРµРЅ.", i+1);
+            $display("Тест %2d пройден.", i+1);
         else
-            $display("РўРµСЃС‚ %2d РќР• РїСЂРѕР№РґРµРЅ.", i+1);    
+            $display("Тест %2d НЕ пройден.", i+1);    
         test_counter = test_counter + (test_register[i] ? 1 : 0);
     end
-    $display("РџСЂРѕР№РґРµРЅРѕ С‚РµСЃС‚РѕРІ: %0d/%0d", test_counter, TEST_COUNT);  
+    $display("Пройдено тестов: %0d/%0d", test_counter, TEST_COUNT);  
 end
 endtask
 
@@ -99,16 +99,16 @@ begin
     jitter();
     in_signal = ~signal_in;
     @(posedge clk) in_signal = signal_in;
-    $display("[%0t]: РЎРёРіРЅР°Р» %b РїРѕРґР°РЅ РЅР° Р»РёРЅРёСЋ.", $time, signal_in);
+    $display("[%0t]: Сигнал %b подан на линию.", $time, signal_in);
     repeat(ticks + 1)
         @(posedge clk);  
-    $display("[%0t]: РЎРёРіРЅР°Р» %b СѓР±СЂР°РЅ СЃ Р»РёРЅРёРё, РїРѕРґР°РЅ СЃРёРіРЅР°Р» 0", $time, signal_in);
+    $display("[%0t]: Сигнал %b убран с линии, подан сигнал 0", $time, signal_in);
 end
 endtask
 
 task jitter;  
 begin
-    $display("Р”СЂРµР±РµР·Рі РЅР° РєРЅРѕРїРєРµ C");
+    $display("Дребезг на кнопке C");
     $srandom(33985);
 	repeat($urandom_range(50,0))
 	begin
