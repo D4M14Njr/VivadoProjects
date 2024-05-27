@@ -15,7 +15,7 @@ reg [16:0] number = 0;
 wire [1:0] i, j;
 wire [31:0] result_out;
 wire fsm_r_o;
-wire led_clk, calc_clk;
+wire led_clk;
 wire [1:0] error_out;
 wire mode;
 
@@ -34,7 +34,7 @@ fsm f(
     .first_one(first_one),
     .input_enable(kb_r_o & (kb_out[6:4] == 3'b001) & ~fsm_r_o),
     .reset(kb_r_o & (kb_out[6:4] == 3'b010)),
-    .clk(calc_clk),
+    .clk(clk),
     .mode(mode),
     .float_data_out(result_out),
     .ready_output(fsm_r_o),
@@ -52,13 +52,9 @@ seven_segment_led led(
     .AN(an),
     .SEG(seg));
 
-clk_div #(4) div1( // change it to 4096
+clk_div #(4096) div1( // change it to 4096
     .clk(clk),
     .clk_d(led_clk));
-
-clk_div #(2) div2( // change it to 20
-    .clk(clk),
-    .clk_d(calc_clk));
 
 always@(posedge clk)
 begin

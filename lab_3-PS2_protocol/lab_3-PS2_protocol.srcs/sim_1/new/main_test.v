@@ -283,7 +283,8 @@ begin
     #100;
     
     @(posedge ma.f.ready_output);
-  
+    #100
+    
     $display("\n13) Проверка вывода результата на индикаторах.");
     if (error_expected == 0) begin
         test_segs(res_x1_expected, 8'b00000000, 0, 0, 0, test_result);
